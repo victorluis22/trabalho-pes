@@ -5,6 +5,7 @@ import styles from "./page.module.css";
 
 import { medicData, medicProps, scheduleProps } from "@/services/medicData";
 import Select from "@/components/Select";
+import axios from "axios";
 
 export default function Home() {
   const [chosenMedic, setChosenMedic] = useState<medicProps | undefined>(
@@ -25,9 +26,9 @@ export default function Home() {
     setChosenSchedule(chosenMedic?.schedules[value]);
   };
 
-  const handleButton = () => {
-    
-
+  const handleButton = async () => {
+    const response = await axios.post("/api/routes/consultas", {codPaciente: 1})
+    console.log(response)
   };
 
   return (
