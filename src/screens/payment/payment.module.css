@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  background-color: var(--background);
+  min-height: 100vh;
+  background-image: url('../../../public/background.png');
+  background-size: cover;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 60%;
+  padding: 30px;
+  background-color: var(--foreground);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.content {
+  display: flex;
+  /* background-color: red; */
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  /* background-color: yellow; */
+  width: 60%;
+  padding: 20px;
+}
+
+.title {
+  color: var(--background);
+}
+
+.code_container {
+  width: 100%;
+  border: 1px solid var(--gray);
+  border-radius: 10px;
+  padding: 20px;
+  background-color: var(--light-gray);
+  word-break: break-all;
+  text-align: center;
+}
+
+.button,
+.copy_button {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-weight: bold;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.copy_button {
+  background-color: var(--green);
+}
+
+.methods {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  /* background-color: green; */
+  width: 40%;
+}
+
+.method_list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.method_card,
+.method_card_selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: var(--foreground);
+  border: 1px solid var(--gray);
+  border-radius: 10px;
+  cursor: pointer;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.method_card_selected {
+  background-color: var(--light-green);
+  border: 1px solid var(--green);
+}
