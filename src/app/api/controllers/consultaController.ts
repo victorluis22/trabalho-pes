@@ -1,16 +1,26 @@
-import catalogoPaciente from "../classes/catalogoPaciente";
-import Paciente from "../classes/paciente";
+import catalogoPaciente from '../model/catalogoPaciente';
+import Paciente from '../model/paciente';
+
+interface criarConsultaReqProps {
+  codPaciente: number;
+  codMedico: number;
+  codDisp: number;
+}
 
 class ConsultaController {
   constructor() {}
 
   async criarConsulta(req: Request) {
-    const body = await req.json();
+    const { codPaciente }: criarConsultaReqProps = await req.json();
 
-    const paciente: Paciente | undefined = catalogoPaciente.encontraPaciente(body.codPaciente);
-    console.log(paciente);
+    const paciente: Paciente | undefined =
+      catalogoPaciente.encontraPaciente(codPaciente);
 
-    return Response.json({ sucess: true });
+    if (paciente) {
+      paciente.criaConsulta();
+    }
+
+    return Response.json({ sucess: paciente });
   }
 }
 

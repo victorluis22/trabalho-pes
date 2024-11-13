@@ -1,12 +1,15 @@
-import { medicProps, scheduleProps } from "@/services/medicData";
-import styles from "./select.module.css";
+import {
+  medicProps,
+  disponibilityProps,
+} from '@/services/mocks/appointmentPageMock';
+import styles from './select.module.css';
 
 interface SelectProps {
   name: string;
   label: string;
   value: number | undefined;
-  type: "medic" | "schedule";
-  data: scheduleProps[] | medicProps[] | undefined;
+  type: 'medic' | 'schedule';
+  data: disponibilityProps[] | medicProps[] | undefined;
   onChangeFunction: Function;
 }
 
@@ -16,7 +19,7 @@ export default function Select({
   value,
   type,
   data,
-  onChangeFunction
+  onChangeFunction,
 }: Readonly<SelectProps>) {
   if (!data) {
     return (
@@ -25,12 +28,17 @@ export default function Select({
           {label}
         </label>
 
-        <select value={value ?? "default"} className={styles.select} name={name} onChange={(e) => onChangeFunction(e.target.value)}>
-          <option value={"default"}>Sem horários disponíveis</option>
+        <select
+          value={value ?? 'default'}
+          className={styles.select}
+          name={name}
+          onChange={(e) => onChangeFunction(e.target.value)}
+        >
+          <option value={'default'}>Sem horários disponíveis</option>
         </select>
       </div>
     );
-  } else if (type === "medic") {
+  } else if (type === 'medic') {
     const medics: medicProps[] = data as medicProps[];
 
     return (
@@ -39,8 +47,13 @@ export default function Select({
           {label}
         </label>
 
-        <select value={value ?? "default"} className={styles.select} name={name} onChange={(e) => onChangeFunction(e.target.value)}>
-          <option value={"default"}>Selecione um médico</option>
+        <select
+          value={value ?? 'default'}
+          className={styles.select}
+          name={name}
+          onChange={(e) => onChangeFunction(e.target.value)}
+        >
+          <option value={'default'}>Selecione um médico</option>
           {medics.map((each) => {
             return (
               <option key={each.id} value={each.id}>
@@ -52,7 +65,7 @@ export default function Select({
       </div>
     );
   } else {
-    const schedules: scheduleProps[] = data as scheduleProps[];
+    const schedules: disponibilityProps[] = data as disponibilityProps[];
 
     return (
       <div className={styles.container}>
@@ -60,12 +73,19 @@ export default function Select({
           {label}
         </label>
 
-        <select value={value ?? "default"} className={styles.select} name={name} onChange={(e) => onChangeFunction(e.target.value)}>
-          <option value={"default"} defaultValue={undefined}>Selecione um horário</option>
+        <select
+          value={value ?? 'default'}
+          className={styles.select}
+          name={name}
+          onChange={(e) => onChangeFunction(e.target.value)}
+        >
+          <option value={'default'} defaultValue={undefined}>
+            Selecione um horário
+          </option>
           {schedules.map((each) => {
             return (
               <option key={each.id} value={each.id}>
-                {each.day} | {each.shift}
+                {each.day} | {each.date} | {each.shift}
               </option>
             );
           })}

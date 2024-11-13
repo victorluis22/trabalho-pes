@@ -2,14 +2,14 @@
   display: flex;
   background-color: var(--background);
   min-height: 100vh;
-  background-image: url("../../public/background.png");
+  background-image: url('../../public/background.png');
   background-size: cover;
 
   justify-content: center;
   align-items: center;
 }
 
-.card{
+.card {
   width: 40%;
   padding: 30px;
   background-color: var(--foreground);
@@ -17,11 +17,11 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.title{
+.title {
   color: var(--background);
 }
 
-.confirmation_container{
+.confirmation_container {
   border: 1px solid var(--gray);
   border-radius: 10px;
   padding: 20px;
