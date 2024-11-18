@@ -10,7 +10,7 @@ import {
 } from '@/services/mocks/appointmentPageMock';
 
 import Select from '@/components/Select';
-import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 export default function AppointmentPage() {
   const [chosenMedic, setChosenMedic] = useState<medicProps | undefined>(
@@ -19,6 +19,8 @@ export default function AppointmentPage() {
   const [chosenDisponibility, setChosenDisponibility] = useState<
     disponibilityProps | undefined
   >(undefined);
+
+  const router = useRouter();
 
   const handleMedicSelect = (value: number) => {
     console.log('id do médico escolhido: ', value);
@@ -42,11 +44,11 @@ export default function AppointmentPage() {
   };
 
   const handleButton = async () => {
-    const payload = {
-      codPaciente: 1,
-      codMedico: chosenMedic?.id,
-      codDisp: chosenDisponibility?.id,
-    };
+    if (chosenMedic && chosenDisponibility) {
+      return router.push(`/pagamento?disponibilidade=${chosenDisponibility.id}`);
+    }
+
+    return alert("Preencha todos os campos do formulário.")
   };
 
   return (

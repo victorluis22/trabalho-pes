@@ -5,13 +5,19 @@ import styles from './payment.module.css';
 
 import { useState } from 'react';
 import axios from 'axios';
+import { useSearchParams } from 'next/navigation';
+import { PageNotFoundError } from 'next/dist/shared/lib/utils';
 
 export default function PaymentPage() {
-  const price = 250.0;
+  const price = 250.00;
+
   const pixCode =
     '00020126360014BR.GOV.BCB.PIX0114+55819999999925204000053039865802BR5907Company6009City7008City99945802BR';
 
   const [chosenPaymentId, setChosenPaymentId] = useState<number | undefined>(0);
+
+  const params = useSearchParams();
+  const codDisp = params.get('disponibilidade') ?? '';
 
   const paymentMethods = [
     {
@@ -36,14 +42,13 @@ export default function PaymentPage() {
 
     const payload = {
       codPaciente: 1,
-      codMedico: 1,
-      codDisp: 2,
+      codDisp: parseInt(codDisp),
       valor: price,
-      dataPagam: `${now.getDay}/${now.getMonth}/${now.getFullYear}`,
-      horaPagam: `${now.getHours}:${now.getMinutes}:${now.getSeconds}`,
-      tipo: paymentMethods.find((method) =>
+      dataPagam: now.toLocaleDateString("pt-br"),
+      horaPagam: now.toLocaleTimeString("pt-br"),
+      tipoPagam: paymentMethods.find((method) => 
         method.id == chosenPaymentId ? method.name : undefined
-      ),
+      )?.name
     };
 
     console.log('Dados enviados: ', payload);
@@ -52,6 +57,10 @@ export default function PaymentPage() {
 
     console.log(response);
   };
+
+  if (!codDisp) {
+    throw PageNotFoundError;
+  }
 
   return (
     <div className={styles.container}>
@@ -75,7 +84,9 @@ export default function PaymentPage() {
 
             <button className={styles.copy_button}>Copiar QR Code</button>
 
-            <button className={styles.button}>Confirmar Pagamento</button>
+            <button className={styles.button} onClick={() => handleSubmit()}>
+              Confirmar Pagamento
+            </button>
           </div>
           <div className={styles.methods}>
             <h3>Selecione um método de pagamento</h3>

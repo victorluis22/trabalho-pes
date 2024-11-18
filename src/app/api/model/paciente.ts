@@ -1,5 +1,7 @@
 import Consulta from './consulta';
 import { v4 as uuid } from 'uuid';
+import Disponibilidade from './disponibilidade';
+import Pagamento from './pagamento';
 
 class Paciente {
   codPaciente: number;
@@ -19,6 +21,7 @@ class Paciente {
   consultas: Consulta[];
 
   constructor(
+    codPaciente: number,
     nome: string,
     password: string,
     email: string,
@@ -32,7 +35,7 @@ class Paciente {
     cidade: string,
     estado: string
   ) {
-    this.codPaciente = 1;
+    this.codPaciente = codPaciente;
     this.nome = nome;
     this.password = password;
     this.email = email;
@@ -49,7 +52,11 @@ class Paciente {
     this.consultas = [];
   }
 
-  criaConsulta() {}
+  criaConsulta(disponibilidade: Disponibilidade, pagamento: Pagamento) {
+    const novaConsulta = new Consulta(disponibilidade, pagamento);
+
+    this.consultas.push(novaConsulta);
+  }
 }
 
 export default Paciente;

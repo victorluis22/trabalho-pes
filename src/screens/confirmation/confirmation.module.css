@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  background-color: var(--background);
+  min-height: 100vh;
+  background-image: url('../../../public/background.png');
+  background-size: cover;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 40%;
+  padding: 30px;
+  background-color: var(--foreground);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.title {
+  color: var(--background);
+}
