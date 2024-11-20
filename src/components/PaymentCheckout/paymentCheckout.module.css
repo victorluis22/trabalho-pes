@@ -9,11 +9,16 @@
   align-items: center;
 }
 
+.title {
+  color: var(--background);
+}
+
 .card {
   width: 60%;
   padding: 30px;
   background-color: var(--foreground);
   border-radius: 10px;
+  height: 60vh;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -31,36 +36,6 @@
   /* background-color: yellow; */
   width: 60%;
   padding: 20px;
-}
-
-.title {
-  color: var(--background);
-}
-
-.code_container {
-  width: 100%;
-  border: 1px solid var(--gray);
-  border-radius: 10px;
-  padding: 20px;
-  background-color: var(--light-gray);
-  word-break: break-all;
-  text-align: center;
-}
-
-.button,
-.copy_button {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-weight: bold;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.copy_button {
-  background-color: var(--green);
 }
 
 .methods {
@@ -96,14 +71,4 @@
 .method_card_selected {
   background-color: var(--light-green);
   border: 1px solid var(--green);
-}
-
-.confirmation_container {
-  border: 1px solid var(--gray);
-  border-radius: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background-color: var(--light-gray);
 }

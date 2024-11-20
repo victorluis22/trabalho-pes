@@ -1,0 +1,26 @@
+.title {
+  color: var(--background);
+}
+
+.input_container {
+  width: 100%;
+}
+
+.input_row_wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-weight: bold;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}

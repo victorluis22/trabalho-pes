@@ -29,25 +29,22 @@ class ConsultaController {
     const paciente: Paciente | undefined =
       catalogoPaciente.encontraPaciente(codPaciente);
 
-    if (!paciente){
-      return Response.json({ error: "Paciente não encontrado" });
+    if (!paciente) {
+      return Response.json({ error: 'Paciente não encontrado' });
     }
 
     const disponibilidade: Disponibilidade | undefined =
       catalogoDisponibilidade.encontraDisponibilidade(codDisp);
 
     if (!disponibilidade) {
-      return Response.json({ error: "Disponibilidade não encontrada" });
+      return Response.json({ error: 'Disponibilidade não encontrada' });
     }
 
-    const pagamento = new Pagamento(valor, dataPagam, horaPagam, tipoPagam)
+    const pagamento = new Pagamento(valor, dataPagam, horaPagam, tipoPagam);
 
     paciente.criaConsulta(disponibilidade, pagamento);
 
-    const url = new URL('/pagamento/confirmacao', req.url);
-    url.searchParams.append('data', JSON.stringify(paciente));
-
-    return Response.redirect(url);
+    return Response.json(paciente);
   }
 }
 

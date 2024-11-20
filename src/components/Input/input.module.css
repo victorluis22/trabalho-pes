@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+.container label{
+  font-weight: bold;
+}
+
+.input {
+  padding: 10px;
+  flex: 1;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  background-color: var(--light-gray);
+}
