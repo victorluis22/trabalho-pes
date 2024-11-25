@@ -1,12 +1,10 @@
-import { v4 as uuid } from 'uuid';
-
 class Avaliacao {
-  codAvaliacao: string;
+  codAvaliacao: number;
   descricao: string;
   nota: number;
 
   constructor(descricao: string, nota: number) {
-    this.codAvaliacao = uuid();
+    this.codAvaliacao = 1;
     this.descricao = descricao;
     this.nota = nota;
   }

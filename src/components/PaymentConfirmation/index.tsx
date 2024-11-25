@@ -1,10 +1,12 @@
-import Paciente from '@/app/api/model/paciente';
+
 import styles from './paymentConfirmation.module.css';
 import Image from 'next/image';
 
 import { formatMoneyBRL } from '@/utils/money';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+
+import Paciente from '@/app/api/model/paciente';
 
 interface PaymentConfirmationProps {
   data: Paciente;
@@ -93,7 +95,7 @@ export default function PaymentConfirmation({
 
             <p>
               <b>Valor: </b>
-              {formatMoneyBRL(data.consultas[0].pagamento.valor)}
+              {formatMoneyBRL(data.consultas.slice(-1)[0].pagamento.valor)}
             </p>
 
             <p>

@@ -2,8 +2,8 @@ class Especialidade {
   codEspecialidade: number;
   nome: string;
 
-  constructor(nome: string) {
-    this.codEspecialidade = 1;
+  constructor(codEspecialidade: number, nome: string) {
+    this.codEspecialidade = codEspecialidade;
     this.nome = nome;
   }
 }

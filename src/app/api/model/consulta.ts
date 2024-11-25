@@ -13,14 +13,17 @@ class Consulta {
 
   constructor(
     disponibilidade: Disponibilidade,
-    pagamento: Pagamento,
+    valor: number,
+    dataPagam: string,
+    horaPagam: string,
+    tipoPagam: string,
     avaliacao?: Avaliacao,
     prescricao?: Prescricao
   ) {
     this.codConsulta = 1;
     this.status = 'Marcada';
-    this.pagamento = pagamento;
     this.disponibilidade = disponibilidade;
+    this.pagamento = new Pagamento(valor, dataPagam, horaPagam, tipoPagam);
     this.avaliacao = avaliacao;
     this.prescricao = prescricao;
   }

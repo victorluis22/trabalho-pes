@@ -4,9 +4,9 @@ import Disponibilidade from './disponibilidade';
 class CatalogoDisponibilidade {
   disponibilidades: Disponibilidade[] = loadedDisponibility;
 
-  encontraDisponibilidade(id: number): Disponibilidade | undefined {
+  encontraDisponibilidade(codDisp: number): Disponibilidade | undefined {
     return this.disponibilidades.find((disponibilidade) => {
-      if (disponibilidade.codDisp === id) {
+      if (disponibilidade.codDisp === codDisp) {
         return disponibilidade;
       }
 

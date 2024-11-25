@@ -83,11 +83,13 @@ export default function Select({
             Selecione um horário
           </option>
           {schedules.map((each) => {
-            return (
-              <option key={each.id} value={each.id}>
-                {each.day} | {each.date} | {each.shift}
-              </option>
-            );
+            if (!each.reserved) {
+              return (
+                <option key={each.id} value={each.id}>
+                  {each.day} | {each.date} | {each.shift}
+                </option>
+              );
+            }
           })}
         </select>
       </div>

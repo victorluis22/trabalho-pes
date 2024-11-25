@@ -1,5 +1,5 @@
-import consultaController from '../../controllers/consultaController';
+import marcaConsultaController from '../../controllers/marcaConsultaController';
 
 export async function POST(req: Request) {
-  return consultaController.criarConsulta(req);
+  return marcaConsultaController.criarConsulta(req);
 }

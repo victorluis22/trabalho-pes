@@ -2,7 +2,6 @@ import catalogoDisponibilidade from '../model/catalogoDisponibilidade';
 import catalogoPaciente from '../model/catalogoPaciente';
 import Disponibilidade from '../model/disponibilidade';
 import Paciente from '../model/paciente';
-import Pagamento from '../model/pagamento';
 
 interface criarConsultaReqProps {
   codPaciente: number;
@@ -13,7 +12,7 @@ interface criarConsultaReqProps {
   tipoPagam: string;
 }
 
-class ConsultaController {
+class MarcaConsultaController {
   constructor() {}
 
   async criarConsulta(req: Request) {
@@ -40,12 +39,10 @@ class ConsultaController {
       return Response.json({ error: 'Disponibilidade não encontrada' });
     }
 
-    const pagamento = new Pagamento(valor, dataPagam, horaPagam, tipoPagam);
-
-    paciente.criaConsulta(disponibilidade, pagamento);
+    paciente.criaConsulta(disponibilidade, valor, dataPagam, horaPagam, tipoPagam);
 
     return Response.json(paciente);
   }
 }
 
-export default new ConsultaController();
+export default new MarcaConsultaController();

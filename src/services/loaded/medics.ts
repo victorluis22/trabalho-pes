@@ -1,4 +1,5 @@
 import Medico from '@/app/api/model/medico';
+import loadedEspecialties from './especialties';
 
 const data = [
   {
@@ -8,7 +9,8 @@ const data = [
     senha: '123456',
     contato: '229988778899',
     crm: '2227778890087',
-    especialidade: 'Cardiologista',
+    especialidade: loadedEspecialties[0],
+    preco: 400.00
   },
   {
     codMedico: 1,
@@ -17,7 +19,8 @@ const data = [
     senha: '123456',
     contato: '229988778899',
     crm: '2227778890088',
-    especialidade: 'Dermatologista',
+    especialidade: loadedEspecialties[3],
+    preco: 250.00
   },
   {
     codMedico: 2,
@@ -26,7 +29,8 @@ const data = [
     senha: '123456',
     contato: '229988778899',
     crm: '2227778890088',
-    especialidade: 'Oftalmologista',
+    especialidade: loadedEspecialties[2],
+    preco: 250.00
   },
   {
     codMedico: 3,
@@ -35,15 +39,16 @@ const data = [
     senha: '123456',
     contato: '229988778899',
     crm: '2227778890088',
-    especialidade: 'Ginecologista',
+    especialidade: loadedEspecialties[1],
+    preco: 100.00
   },
 ];
 
 const loadedMedics: Medico[] = [];
 
-data.map(({ codMedico, nome, email, senha, contato, crm, especialidade }) => {
+data.map(({ codMedico, nome, email, senha, contato, crm, especialidade, preco }) => {
   loadedMedics.push(
-    new Medico(codMedico, nome, email, senha, contato, crm, especialidade)
+    new Medico(codMedico, nome, email, senha, contato, crm, especialidade, preco)
   );
 });
 

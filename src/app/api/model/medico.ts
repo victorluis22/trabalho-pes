@@ -7,7 +7,8 @@ class Medico {
   senha: string;
   contato: string;
   crm: string;
-  especialidade: string; // Ver depois isso aqui para virar classe kkk
+  especialidade: Especialidade;
+  preco: number;
 
   constructor(
     codMedico: number,
@@ -16,7 +17,8 @@ class Medico {
     senha: string,
     contato: string,
     crm: string,
-    especialidade: string
+    especialidade: Especialidade,
+    preco: number
   ) {
     this.codMedico = codMedico;
     this.nome = nome;
@@ -25,6 +27,7 @@ class Medico {
     this.contato = contato;
     this.crm = crm;
     this.especialidade = especialidade;
+    this.preco = preco;
   }
 }
 

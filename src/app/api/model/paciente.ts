@@ -1,7 +1,5 @@
 import Consulta from './consulta';
-import { v4 as uuid } from 'uuid';
 import Disponibilidade from './disponibilidade';
-import Pagamento from './pagamento';
 
 class Paciente {
   codPaciente: number;
@@ -52,8 +50,22 @@ class Paciente {
     this.consultas = [];
   }
 
-  criaConsulta(disponibilidade: Disponibilidade, pagamento: Pagamento) {
-    const novaConsulta = new Consulta(disponibilidade, pagamento);
+  criaConsulta(
+    disponibilidade: Disponibilidade,
+    valor: number,
+    dataPagam: string,
+    horaPagam: string,
+    tipoPagam: string
+  ) {
+    const novaConsulta = new Consulta(
+      disponibilidade,
+      valor,
+      dataPagam,
+      horaPagam,
+      tipoPagam
+    );
+
+    disponibilidade.reservaDisponibilidade();
 
     this.consultas.push(novaConsulta);
   }

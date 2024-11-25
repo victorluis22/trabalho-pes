@@ -4,9 +4,9 @@ import Paciente from './paciente';
 class CatalogoPaciente {
   pacientes: Paciente[] = loadedPacients;
 
-  encontraPaciente(id: number): Paciente | undefined {
+  encontraPaciente(codPaciente: number): Paciente | undefined {
     return this.pacientes.find((paciente) => {
-      if (paciente.codPaciente === id) {
+      if (paciente.codPaciente === codPaciente) {
         return paciente;
       }
 
