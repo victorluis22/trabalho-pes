@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import Paciente from '@/app/api/model/paciente';
+import Loading from '../Loading';
 
 interface PaymentConfirmationProps {
   data: Paciente;
@@ -23,22 +24,11 @@ export default function PaymentConfirmation({
       setLoading(false);
     }, 1500);
 
-    console.log(data);
-  }, []);
+    console.log("Resposta do sistema: ", data);
+  }, [data]);
 
   if (loading) {
-    return (
-      <div className={styles.container}>
-        <div className={styles.card}>
-          <Image
-            src={'/loading.gif'}
-            alt="Ícone de loading"
-            width={60}
-            height={60}
-          />
-        </div>
-      </div>
-    );
+    return <Loading />
   }
 
   return (

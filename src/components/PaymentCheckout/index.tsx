@@ -1,8 +1,10 @@
-
+import { creditDataProps } from '@/screens/payment';
 import CreditCard from '../PaymentMethods/CreditCard';
 import Pix from '../PaymentMethods/Pix';
 import styles from './paymentCheckout.module.css';
 import Image from 'next/image';
+
+import { Dispatch, SetStateAction } from 'react';
 
 interface PaymentMethodsProps {
   id: number;
@@ -17,6 +19,8 @@ interface PaymentCheckoutProps {
   chosenPaymentId: number | undefined;
   setChosenPaymentId: (id: number) => void;
   handleSubmit: () => void;
+  creditData: creditDataProps;
+  changeCreditData: Dispatch<SetStateAction<creditDataProps>>;
 }
 
 export default function PaymentCheckout({
@@ -26,6 +30,8 @@ export default function PaymentCheckout({
   chosenPaymentId,
   setChosenPaymentId,
   handleSubmit,
+  creditData,
+  changeCreditData
 }: Readonly<PaymentCheckoutProps>) {
   return (
     <div className={styles.container}>
@@ -34,24 +40,20 @@ export default function PaymentCheckout({
 
         <div className={styles.content}>
           <div className={styles.info}>
-            {
-              chosenPaymentId === 0 ? 
-                <Pix price={price} pixCode={pixCode} handleSubmit={handleSubmit} />
-              :
-                false
-            }
-            {
-              chosenPaymentId === 1 ? 
-                <CreditCard price={price} handleSubmit={handleSubmit} />
-              :
-                false
-            }
-            {
-              chosenPaymentId === 2 ? 
-                <Pix price={price} pixCode={pixCode} handleSubmit={handleSubmit} />
-              :
-                false
-            }
+            {chosenPaymentId === 0 ? (
+              <Pix
+                price={price}
+                pixCode={pixCode}
+                handleSubmit={handleSubmit}
+              />
+            ) : (
+              false
+            )}
+            {chosenPaymentId === 1 ? (
+              <CreditCard price={price} creditData={creditData} changeCreditData={changeCreditData} handleSubmit={handleSubmit} />
+            ) : (
+              false
+            )}
           </div>
           <div className={styles.methods}>
             <h3>Selecione um método de pagamento</h3>

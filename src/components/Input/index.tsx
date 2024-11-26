@@ -2,12 +2,12 @@ import styles from './input.module.css';
 
 import { InputMask } from 'primereact/inputmask';
 import { InputText } from 'primereact/inputtext';
-import { Dispatch, SetStateAction } from 'react';
+
 
 interface InputProps {
   label: string;
   value: string;
-  changeFunction: Dispatch<SetStateAction<string>>;
+  changeFunction: (value: string) => void;
   mask?: string | undefined;
 }
 

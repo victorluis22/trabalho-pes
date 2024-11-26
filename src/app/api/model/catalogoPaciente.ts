@@ -15,4 +15,6 @@ class CatalogoPaciente {
   }
 }
 
-export default new CatalogoPaciente();
+const catalogoPaciente = new CatalogoPaciente();
+
+export default catalogoPaciente;

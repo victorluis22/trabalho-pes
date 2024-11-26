@@ -1,5 +1,6 @@
 import { formatMoneyBRL } from '@/utils/money';
-import { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
+import { creditDataProps } from '@/screens/payment';
 
 import styles from './creditCard.module.css';
 import Input from '@/components/Input';
@@ -7,16 +8,33 @@ import Input from '@/components/Input';
 interface PixProps {
   price: number;
   handleSubmit: () => void;
+  creditData: creditDataProps;
+  changeCreditData: Dispatch<SetStateAction<creditDataProps>>;
 }
 
 export default function CreditCard({
   price,
   handleSubmit,
+  creditData,
+  changeCreditData
 }: Readonly<PixProps>) {
-  const [number, setNumber] = useState("");
-  const [owner, setOwner] = useState("");
-  const [expireDate, setExpireDate] = useState("");
-  const [cvc, setCvc] = useState("");
+  const { owner, number, expireDate, cvc } = creditData;
+
+  const setNumber = (value: string) => {
+    changeCreditData({...creditData, number: value})
+  }
+
+  const setOwner = (value: string) => {
+    changeCreditData({...creditData, owner: value})
+  }
+
+  const setExpireDate = (value: string) => {
+    changeCreditData({...creditData, expireDate: value})
+  }
+
+  const setCvc = (value: string) => {
+    changeCreditData({...creditData, cvc: value})
+  }
 
   return (
     <>

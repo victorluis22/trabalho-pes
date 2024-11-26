@@ -11,40 +11,54 @@ import PaymentCheckout from '@/components/PaymentCheckout';
 import axios from 'axios';
 import loadedDisponibility from '@/services/loaded/disponibility';
 
+const paymentMethods = [
+  {
+    id: 0,
+    name: 'PIX',
+    image: '/pix.svg',
+  },
+  {
+    id: 1,
+    name: 'Cartão',
+    image: '/card.svg',
+  },
+];
+
+const pixCode =
+  '00020126360014BR.GOV.BCB.PIX0114+55819999999925204000053039865802BR5907Company6009City7008City99945802BR';
+
+export interface creditDataProps {
+  number: string;
+  owner: string;
+  expireDate: string
+  cvc: string;
+}
+
 export default function PaymentPage() {
   const params = useSearchParams();
   const codDisp = params.get('disponibilidade') ?? undefined;
+  const [chosenPaymentId, setChosenPaymentId] = useState<number>(0);
+
+  const [creditData, setCreditData] = useState<creditDataProps>({
+    number: "",
+    owner: "",
+    expireDate: "",
+    cvc: ""
+  });
+
+  const [confirmationJSON, setConfirmationJSON] = useState<
+    Paciente | undefined
+  >();
 
   if (!codDisp) {
     return notFound();
   }
 
-  const paymentMethods = [
-    {
-      id: 0,
-      name: 'PIX',
-      image: '/pix.svg',
-    },
-    {
-      id: 1,
-      name: 'Cartão',
-      image: '/card.svg',
-    },
-  ];
-
-  const pixCode =
-    '00020126360014BR.GOV.BCB.PIX0114+55819999999925204000053039865802BR5907Company6009City7008City99945802BR';
-
-  const [chosenPaymentId, setChosenPaymentId] = useState<number>(0);
-  const [confirmationJSON, setConfirmationJSON] = useState<
-    Paciente | undefined
-  >();
-
   const chosenDisponibility = loadedDisponibility.find((disponibility) => {
     if (disponibility.codDisp === parseInt(codDisp)) return disponibility;
   });
 
-  const price = chosenDisponibility?.medico.preco ?? 250.00;
+  const price = chosenDisponibility?.medico.preco ?? 250.0;
 
   const criarConsulta = async () => {
     const paymentType = paymentMethods.find((method) =>
@@ -52,8 +66,6 @@ export default function PaymentPage() {
     )?.name;
 
     const validation = validatePayment(paymentType);
-
-    console.log(validation)
 
     if (!validation.success) {
       return alert('Erro ao validar pagamento!');
@@ -83,6 +95,8 @@ export default function PaymentPage() {
     <PaymentCheckout
       price={price}
       pixCode={pixCode}
+      creditData={creditData}
+      changeCreditData={setCreditData}
       chosenPaymentId={chosenPaymentId}
       setChosenPaymentId={setChosenPaymentId}
       handleSubmit={criarConsulta}

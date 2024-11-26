@@ -3,8 +3,6 @@ import {
   disponibilityProps,
 } from '@/services/mocks/appointmentPageMock';
 
-import { Dispatch, SetStateAction } from 'react';
-
 import styles from './select.module.css';
 
 interface SelectProps {

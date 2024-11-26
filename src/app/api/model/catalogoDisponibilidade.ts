@@ -15,4 +15,6 @@ class CatalogoDisponibilidade {
   }
 }
 
-export default new CatalogoDisponibilidade();
+const catalogoDisponibilidade = new CatalogoDisponibilidade();
+
+export default catalogoDisponibilidade;

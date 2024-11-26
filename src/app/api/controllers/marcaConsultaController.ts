@@ -45,4 +45,6 @@ class MarcaConsultaController {
   }
 }
 
-export default new MarcaConsultaController();
+const marcaConsultaController = new MarcaConsultaController();
+
+export default marcaConsultaController;
