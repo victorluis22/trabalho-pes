@@ -1,12 +1,12 @@
 import { formatMoneyBRL } from '@/utils/money';
+import { useState } from 'react';
 
 import styles from './creditCard.module.css';
 import Input from '@/components/Input';
-import { useState } from 'react';
 
 interface PixProps {
   price: number;
-  handleSubmit: Function;
+  handleSubmit: () => void;
 }
 
 export default function CreditCard({

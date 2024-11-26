@@ -15,8 +15,8 @@ interface PaymentCheckoutProps {
   pixCode: string;
   paymentMethods: PaymentMethodsProps[];
   chosenPaymentId: number | undefined;
-  setChosenPaymentId: Function;
-  handleSubmit: Function;
+  setChosenPaymentId: (id: number) => void;
+  handleSubmit: () => void;
 }
 
 export default function PaymentCheckout({
@@ -35,19 +35,19 @@ export default function PaymentCheckout({
         <div className={styles.content}>
           <div className={styles.info}>
             {
-              chosenPaymentId == 0 ? 
+              chosenPaymentId === 0 ? 
                 <Pix price={price} pixCode={pixCode} handleSubmit={handleSubmit} />
               :
                 false
             }
             {
-              chosenPaymentId == 1 ? 
+              chosenPaymentId === 1 ? 
                 <CreditCard price={price} handleSubmit={handleSubmit} />
               :
                 false
             }
             {
-              chosenPaymentId == 2 ? 
+              chosenPaymentId === 2 ? 
                 <Pix price={price} pixCode={pixCode} handleSubmit={handleSubmit} />
               :
                 false

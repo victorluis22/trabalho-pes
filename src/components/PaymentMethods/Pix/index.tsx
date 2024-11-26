@@ -6,7 +6,7 @@ import styles from './pix.module.css';
 interface PixProps {
   price: number;
   pixCode: string;
-  handleSubmit: Function
+  handleSubmit: () => void;
 }
 
 export default function Pix({ price, pixCode, handleSubmit }: Readonly<PixProps>) {

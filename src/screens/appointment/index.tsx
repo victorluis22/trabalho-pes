@@ -22,22 +22,22 @@ export default function AppointmentPage() {
 
   const router = useRouter();
 
-  const handleMedicSelect = (value: number) => {
+  const handleMedicSelect = (value: string) => {
     console.log('id do médico escolhido: ', value);
 
     const medic = medicData.find((medic) =>
-      medic.id == value ? medic : undefined
+      medic.id == parseInt(value) ? medic : undefined
     );
 
     setChosenMedic(medic);
     setChosenDisponibility(undefined);
   };
 
-  const handleScheduleSelect = (value: number) => {
+  const handleScheduleSelect = (value: string) => {
     console.log('id do horário escolhido: ', value);
 
     const schedule = chosenMedic?.schedules.find((schedule) =>
-      schedule.id == value ? schedule : undefined
+      schedule.id == parseInt(value) ? schedule : undefined
     );
 
     setChosenDisponibility(schedule);
@@ -62,7 +62,7 @@ export default function AppointmentPage() {
           label="Selecione o médico"
           value={chosenMedic?.id}
           data={medicData}
-          onChangeFunction={handleMedicSelect}
+          changeFunction={handleMedicSelect}
         />
 
         <Select
@@ -71,7 +71,7 @@ export default function AppointmentPage() {
           label="Selecione o horário disponível para consulta"
           value={chosenDisponibility?.id}
           data={chosenMedic?.schedules}
-          onChangeFunction={handleScheduleSelect}
+          changeFunction={handleScheduleSelect}
         />
 
         <div className={styles.confirmation_container}>

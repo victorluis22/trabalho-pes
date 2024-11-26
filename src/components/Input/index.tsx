@@ -1,12 +1,13 @@
+import styles from './input.module.css';
+
 import { InputMask } from 'primereact/inputmask';
 import { InputText } from 'primereact/inputtext';
-
-import styles from './input.module.css';
+import { Dispatch, SetStateAction } from 'react';
 
 interface InputProps {
   label: string;
   value: string;
-  changeFunction: Function;
+  changeFunction: Dispatch<SetStateAction<string>>;
   mask?: string | undefined;
 }
 
@@ -25,7 +26,7 @@ export default function Input({
             className={styles.input}
             name={label}
             value={value}
-            onChange={(e) => changeFunction(e.target.value)}
+            onChange={(e) => changeFunction(e.target.value || "")}
             mask={mask}
           />
           :

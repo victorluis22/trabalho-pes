@@ -2,6 +2,9 @@ import {
   medicProps,
   disponibilityProps,
 } from '@/services/mocks/appointmentPageMock';
+
+import { Dispatch, SetStateAction } from 'react';
+
 import styles from './select.module.css';
 
 interface SelectProps {
@@ -10,7 +13,7 @@ interface SelectProps {
   value: number | undefined;
   type: 'medic' | 'schedule';
   data: disponibilityProps[] | medicProps[] | undefined;
-  onChangeFunction: Function;
+  changeFunction: (value: string) => void;
 }
 
 export default function Select({
@@ -19,7 +22,7 @@ export default function Select({
   value,
   type,
   data,
-  onChangeFunction,
+  changeFunction,
 }: Readonly<SelectProps>) {
   if (!data) {
     return (
@@ -32,7 +35,7 @@ export default function Select({
           value={value ?? 'default'}
           className={styles.select}
           name={name}
-          onChange={(e) => onChangeFunction(e.target.value)}
+          onChange={(e) => changeFunction(e.target.value)}
         >
           <option value={'default'}>Sem horários disponíveis</option>
         </select>
@@ -51,7 +54,7 @@ export default function Select({
           value={value ?? 'default'}
           className={styles.select}
           name={name}
-          onChange={(e) => onChangeFunction(e.target.value)}
+          onChange={(e) => changeFunction(e.target.value)}
         >
           <option value={'default'}>Selecione um médico</option>
           {medics.map((each) => {
@@ -77,7 +80,7 @@ export default function Select({
           value={value ?? 'default'}
           className={styles.select}
           name={name}
-          onChange={(e) => onChangeFunction(e.target.value)}
+          onChange={(e) => changeFunction(e.target.value)}
         >
           <option value={'default'} defaultValue={undefined}>
             Selecione um horário
