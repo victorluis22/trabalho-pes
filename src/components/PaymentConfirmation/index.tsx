@@ -1,4 +1,3 @@
-
 import styles from './paymentConfirmation.module.css';
 import Image from 'next/image';
 
@@ -24,11 +23,11 @@ export default function PaymentConfirmation({
       setLoading(false);
     }, 1500);
 
-    console.log("Resposta do sistema: ", data);
+    console.log('Resposta do sistema: ', data);
   }, [data]);
 
   if (loading) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (
@@ -72,8 +71,9 @@ export default function PaymentConfirmation({
             </p>
             <p>
               <b>Horário: </b>
-              {data.consultas.slice(-1)[0].disponibilidade.horario.horaIni} -{' '}
-              {data.consultas.slice(-1)[0].disponibilidade.horario.horaFim}
+              {
+                data.consultas.slice(-1)[0].disponibilidade.horario.horaIni
+              } - {data.consultas.slice(-1)[0].disponibilidade.horario.horaFim}
             </p>
             <p>
               <b>Médico: </b>
@@ -103,10 +103,9 @@ export default function PaymentConfirmation({
               {data.consultas.slice(-1)[0].pagamento.horaPagam}
             </p>
           </div>
-          
         </div>
 
-        <button className={styles.button} onClick={() => router.push("/")}>
+        <button className={styles.button} onClick={() => router.push('/')}>
           Voltar ao início
         </button>
       </div>

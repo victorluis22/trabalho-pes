@@ -16,7 +16,7 @@ const data = [
   {
     codEspecialidade: 3,
     nome: 'Dermatologista',
-  }
+  },
 ];
 
 const loadedEspecialties: Especialidade[] = [];

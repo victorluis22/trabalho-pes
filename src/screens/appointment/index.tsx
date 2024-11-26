@@ -45,10 +45,12 @@ export default function AppointmentPage() {
 
   const handleButton = async () => {
     if (chosenMedic && chosenDisponibility) {
-      return router.push(`/pagamento?disponibilidade=${chosenDisponibility.id}`);
+      return router.push(
+        `/pagamento?disponibilidade=${chosenDisponibility.id}`
+      );
     }
 
-    return alert("Preencha todos os campos do formulário.")
+    return alert('Preencha todos os campos do formulário.');
   };
 
   return (

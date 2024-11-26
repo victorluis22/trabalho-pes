@@ -39,7 +39,13 @@ class MarcaConsultaController {
       return Response.json({ error: 'Disponibilidade não encontrada' });
     }
 
-    paciente.criaConsulta(disponibilidade, valor, dataPagam, horaPagam, tipoPagam);
+    paciente.criaConsulta(
+      disponibilidade,
+      valor,
+      dataPagam,
+      horaPagam,
+      tipoPagam
+    );
 
     return Response.json(paciente);
   }

@@ -30,7 +30,7 @@ const pixCode =
 export interface creditDataProps {
   number: string;
   owner: string;
-  expireDate: string
+  expireDate: string;
   cvc: string;
 }
 
@@ -40,10 +40,10 @@ export default function PaymentPage() {
   const [chosenPaymentId, setChosenPaymentId] = useState<number>(0);
 
   const [creditData, setCreditData] = useState<creditDataProps>({
-    number: "",
-    owner: "",
-    expireDate: "",
-    cvc: ""
+    number: '',
+    owner: '',
+    expireDate: '',
+    cvc: '',
   });
 
   const [confirmationJSON, setConfirmationJSON] = useState<

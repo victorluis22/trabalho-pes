@@ -31,7 +31,7 @@ export default function PaymentCheckout({
   setChosenPaymentId,
   handleSubmit,
   creditData,
-  changeCreditData
+  changeCreditData,
 }: Readonly<PaymentCheckoutProps>) {
   return (
     <div className={styles.container}>
@@ -50,7 +50,12 @@ export default function PaymentCheckout({
               false
             )}
             {chosenPaymentId === 1 ? (
-              <CreditCard price={price} creditData={creditData} changeCreditData={changeCreditData} handleSubmit={handleSubmit} />
+              <CreditCard
+                price={price}
+                creditData={creditData}
+                changeCreditData={changeCreditData}
+                handleSubmit={handleSubmit}
+              />
             ) : (
               false
             )}

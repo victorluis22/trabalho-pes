@@ -10,7 +10,7 @@ const data = [
     contato: '229988778899',
     crm: '2227778890087',
     especialidade: loadedEspecialties[0],
-    preco: 400.00
+    preco: 400.0,
   },
   {
     codMedico: 1,
@@ -20,7 +20,7 @@ const data = [
     contato: '229988778899',
     crm: '2227778890088',
     especialidade: loadedEspecialties[3],
-    preco: 250.00
+    preco: 250.0,
   },
   {
     codMedico: 2,
@@ -30,7 +30,7 @@ const data = [
     contato: '229988778899',
     crm: '2227778890088',
     especialidade: loadedEspecialties[2],
-    preco: 250.00
+    preco: 250.0,
   },
   {
     codMedico: 3,
@@ -40,16 +40,27 @@ const data = [
     contato: '229988778899',
     crm: '2227778890088',
     especialidade: loadedEspecialties[1],
-    preco: 100.00
+    preco: 100.0,
   },
 ];
 
 const loadedMedics: Medico[] = [];
 
-data.map(({ codMedico, nome, email, senha, contato, crm, especialidade, preco }) => {
-  loadedMedics.push(
-    new Medico(codMedico, nome, email, senha, contato, crm, especialidade, preco)
-  );
-});
+data.map(
+  ({ codMedico, nome, email, senha, contato, crm, especialidade, preco }) => {
+    loadedMedics.push(
+      new Medico(
+        codMedico,
+        nome,
+        email,
+        senha,
+        contato,
+        crm,
+        especialidade,
+        preco
+      )
+    );
+  }
+);
 
 export default loadedMedics;

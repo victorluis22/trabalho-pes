@@ -9,7 +9,11 @@ interface PixProps {
   handleSubmit: () => void;
 }
 
-export default function Pix({ price, pixCode, handleSubmit }: Readonly<PixProps>) {
+export default function Pix({
+  price,
+  pixCode,
+  handleSubmit,
+}: Readonly<PixProps>) {
   return (
     <>
       <h3>Valor da consulta: {formatMoneyBRL(price)}</h3>

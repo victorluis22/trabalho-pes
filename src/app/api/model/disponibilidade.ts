@@ -16,10 +16,9 @@ class Disponibilidade {
     this.reservado = false;
   }
 
-  reservaDisponibilidade(){
+  reservaDisponibilidade() {
     this.reservado = true;
   }
-
 }
 
 export default Disponibilidade;

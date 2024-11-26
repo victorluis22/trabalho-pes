@@ -16,25 +16,25 @@ export default function CreditCard({
   price,
   handleSubmit,
   creditData,
-  changeCreditData
+  changeCreditData,
 }: Readonly<PixProps>) {
   const { owner, number, expireDate, cvc } = creditData;
 
   const setNumber = (value: string) => {
-    changeCreditData({...creditData, number: value})
-  }
+    changeCreditData({ ...creditData, number: value });
+  };
 
   const setOwner = (value: string) => {
-    changeCreditData({...creditData, owner: value})
-  }
+    changeCreditData({ ...creditData, owner: value });
+  };
 
   const setExpireDate = (value: string) => {
-    changeCreditData({...creditData, expireDate: value})
-  }
+    changeCreditData({ ...creditData, expireDate: value });
+  };
 
   const setCvc = (value: string) => {
-    changeCreditData({...creditData, cvc: value})
-  }
+    changeCreditData({ ...creditData, cvc: value });
+  };
 
   return (
     <>
@@ -47,24 +47,15 @@ export default function CreditCard({
           changeFunction={setNumber}
           mask="9999 9999 9999 9999"
         />
-        <Input
-          label="Nome no cartão"
-          value={owner}
-          changeFunction={setOwner}
-        />
+        <Input label="Nome no cartão" value={owner} changeFunction={setOwner} />
         <div className={styles.input_row_wrapper}>
           <Input
             label="Data de vencimento"
             value={expireDate}
             changeFunction={setExpireDate}
-            mask='99/99/9999'
+            mask="99/99/9999"
           />
-          <Input
-            label="CVC"
-            value={cvc}
-            changeFunction={setCvc}
-            mask='999'
-          />
+          <Input label="CVC" value={cvc} changeFunction={setCvc} mask="999" />
         </div>
       </div>
 
