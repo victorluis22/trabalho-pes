@@ -65,10 +65,10 @@ export default function PaymentPage() {
       method.id == chosenPaymentId ? method.name : undefined
     )?.name;
 
-    const validation = validatePayment(paymentType);
+    const validation = validatePayment(paymentType, pixCode, creditData);
 
-    if (!validation.success) {
-      return alert('Erro ao validar pagamento!');
+    if (!validation.sucess) {
+      return alert(validation.message);
     }
 
     const payload = {
@@ -80,11 +80,14 @@ export default function PaymentPage() {
       tipoPagam: paymentType,
     };
 
-    console.log('Dados enviados: ', payload);
+    try {
+      const response = await axios.post('/api/routes/consultas', payload);
+      console.log('Dados enviados: ', payload);
 
-    const response = await axios.post('/api/routes/consultas', payload);
-
-    return setConfirmationJSON(response.data);
+      return setConfirmationJSON(response.data);
+    } catch (error) {
+      return alert(error);
+    }
   };
 
   if (confirmationJSON) {

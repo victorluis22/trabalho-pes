@@ -3,19 +3,19 @@ class Pagamento {
   valor: number;
   dataPagam: string;
   horaPagam: string;
-  tipo: string;
+  tipoPagam: string;
 
   constructor(
     valor: number,
     dataPagam: string,
     horaPagam: string,
-    tipo: string
+    tipoPagam: string
   ) {
     this.codPagamento = 1;
     this.valor = valor;
     this.dataPagam = dataPagam;
     this.horaPagam = horaPagam;
-    this.tipo = tipo;
+    this.tipoPagam = tipoPagam;
   }
 }
 

@@ -1,9 +1,9 @@
 class Especialidade {
-  codEspecialidade: number;
+  codEspec: number;
   nome: string;
 
-  constructor(codEspecialidade: number, nome: string) {
-    this.codEspecialidade = codEspecialidade;
+  constructor(codEspec: number, nome: string) {
+    this.codEspec = codEspec;
     this.nome = nome;
   }
 }

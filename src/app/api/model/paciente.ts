@@ -4,7 +4,7 @@ import Disponibilidade from './disponibilidade';
 class Paciente {
   codPaciente: number;
   nome: string;
-  password: string;
+  senha: string;
   email: string;
   contato: string;
   cep: string;
@@ -21,7 +21,7 @@ class Paciente {
   constructor(
     codPaciente: number,
     nome: string,
-    password: string,
+    senha: string,
     email: string,
     contato: string,
     cep: string,
@@ -35,7 +35,7 @@ class Paciente {
   ) {
     this.codPaciente = codPaciente;
     this.nome = nome;
-    this.password = password;
+    this.senha = senha;
     this.email = email;
     this.contato = contato;
     this.cep = cep;
