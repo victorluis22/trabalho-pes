@@ -1,4 +1,4 @@
-import Especialidade from '@/app/api/model/especialidade';
+import Especialidade from '@/app/api/models/especialidade';
 
 const data = [
   {

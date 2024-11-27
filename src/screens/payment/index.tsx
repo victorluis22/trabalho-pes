@@ -5,7 +5,7 @@ import { notFound, useSearchParams } from 'next/navigation';
 import { validatePayment } from '@/utils/paymentValidation';
 
 import PaymentConfirmation from '@/components/PaymentConfirmation';
-import Paciente from '@/app/api/model/paciente';
+import Paciente from '@/app/api/models/paciente';
 import PaymentCheckout from '@/components/PaymentCheckout';
 
 import axios from 'axios';

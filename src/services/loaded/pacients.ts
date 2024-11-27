@@ -1,4 +1,4 @@
-import Paciente from '@/app/api/model/paciente';
+import Paciente from '@/app/api/models/paciente';
 
 const data = [
   {

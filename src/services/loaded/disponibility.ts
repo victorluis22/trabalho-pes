@@ -1,4 +1,4 @@
-import Disponibilidade from '@/app/api/model/disponibilidade';
+import Disponibilidade from '@/app/api/models/disponibilidade';
 
 import loadedMedics from './medics';
 import loadedSchedules from './schedules';

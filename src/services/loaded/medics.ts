@@ -1,4 +1,4 @@
-import Medico from '@/app/api/model/medico';
+import Medico from '@/app/api/models/medico';
 import loadedEspecialties from './especialties';
 
 const data = [

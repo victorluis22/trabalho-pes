@@ -19,9 +19,10 @@ export const validatePayment = (type: string | undefined, pixCode: string, credi
 };
 
 export const validatePIX = (now: Date, pixCode: string) => {
+
   return {
     sucess: true,
-    message: "Sucesso ao validar pagamento Pix",
+    message: `Sucesso ao validar pagamento Pix ${pixCode}`,
     date: now.toLocaleDateString(),
     hour: now.toLocaleTimeString(),
   };

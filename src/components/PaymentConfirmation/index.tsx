@@ -5,7 +5,7 @@ import { formatMoneyBRL } from '@/utils/money';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import Paciente from '@/app/api/model/paciente';
+import Paciente from '@/app/api/models/paciente';
 import Loading from '../Loading';
 
 interface PaymentConfirmationProps {
@@ -90,7 +90,7 @@ export default function PaymentConfirmation({
 
             <p>
               <b>Tipo: </b>
-              {data.consultas.slice(-1)[0].pagamento.tipo}
+              {data.consultas.slice(-1)[0].pagamento.tipoPagam}
             </p>
 
             <p>

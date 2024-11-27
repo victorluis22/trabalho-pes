@@ -1,7 +1,7 @@
-import catalogoDisponibilidade from '../model/catalogoDisponibilidade';
-import catalogoPaciente from '../model/catalogoPaciente';
-import Disponibilidade from '../model/disponibilidade';
-import Paciente from '../model/paciente';
+import catalogoDisponibilidade from '../models/catalogoDisponibilidade';
+import catalogoPaciente from '../models/catalogoPaciente';
+import Disponibilidade from '../models/disponibilidade';
+import Paciente from '../models/paciente';
 
 interface criarConsultaReqProps {
   codPaciente: number;

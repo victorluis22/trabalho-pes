@@ -1,4 +1,4 @@
-import Horario from '@/app/api/model/horario';
+import Horario from '@/app/api/models/horario';
 
 const data = [
   {
