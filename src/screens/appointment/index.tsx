@@ -23,7 +23,7 @@ export default function AppointmentPage() {
   const router = useRouter();
 
   const handleMedicSelect = (value: string) => {
-    console.log('id do médico escolhido: ', value);
+    console.log('Id do médico escolhido: ', value);
 
     const medic = medicData.find((medic) =>
       medic.id == parseInt(value) ? medic : undefined
@@ -34,7 +34,7 @@ export default function AppointmentPage() {
   };
 
   const handleScheduleSelect = (value: string) => {
-    console.log('id do horário escolhido: ', value);
+    console.log('Id do horário escolhido: ', value);
 
     const schedule = chosenMedic?.schedules.find((schedule) =>
       schedule.id == parseInt(value) ? schedule : undefined

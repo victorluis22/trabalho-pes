@@ -1,11 +1,11 @@
-const now = new Date();
-
 export const validatePayment = (type: string | undefined) => {
+  const now = new Date();
+
   switch (type) {
     case 'PIX':
-      return validatePIX();
+      return validatePIX(now);
     case 'Cartão':
-      return validateCard();
+      return validateCard(now);
     default:
       return {
         success: false,
@@ -15,7 +15,7 @@ export const validatePayment = (type: string | undefined) => {
   }
 };
 
-export const validatePIX = () => {
+export const validatePIX = (now: Date) => {
   return {
     success: true,
     date: now.toLocaleDateString(),
@@ -23,7 +23,7 @@ export const validatePIX = () => {
   };
 };
 
-export const validateCard = () => {
+export const validateCard = (now: Date) => {
   return {
     success: true,
     date: now.toLocaleDateString(),

@@ -14,11 +14,17 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 60%;
-  height: 70vh;
+  width: 90%;
+  min-height: 70vh;
   padding: 30px;
   gap: 20px;
   background-color: var(--foreground);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@media screen and (min-width: 800px) {
+  .card {
+    width: 60%;
+  }
 }
